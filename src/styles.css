@@ -1,0 +1,13 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.todoList {
+  margin: 0px auto;
+  width: 500px;
+}
+
+.todoListItems {
+  text-align: left;
+}
