@@ -68,8 +68,12 @@ export default function TodoList() {
     <div className="App">
       <div className="todoList">
         <h1>TO DO list</h1>
-        <form onSubmit={(e) => addItem(e)}>
-          <input type="text" ref={addItemRef}></input>
+        <form onSubmit={(e) => addItem(e)} style={{ textAlign: "left" }}>
+          <input
+            type="text"
+            ref={addItemRef}
+            placeholder="write and press enter"
+          ></input>
         </form>
         <div className="todoListItems">
           <h4>Active items: </h4>
