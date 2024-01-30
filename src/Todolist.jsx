@@ -72,30 +72,62 @@ export default function TodoList() {
           <input type="text" ref={addItemRef}></input>
         </form>
         <div className="todoListItems">
+          <h4>Active items: </h4>
           {items &&
-            items.map((a) => (
-              <div key={a.key}>
-                <input
-                  style={{
-                    marginRight: "2rem",
-                    height: "15px",
-                    width: "15px",
-                    minWidth: "15px",
-                  }}
-                  type="checkbox"
-                  checked={!!a.checked}
-                  onChange={() => onSelectCheckbox(a.key)}
-                />
-                <label
-                  for={a.name}
-                  style={{
-                    textDecoration: a.checked ? "line-through" : "none",
-                  }}
-                >
-                  {a.name}
-                </label>
-              </div>
-            ))}
+            items
+              .filter((a) => !a.checked)
+              .map((a) => (
+                <div key={a.key}>
+                  <input
+                    style={{
+                      marginRight: "2rem",
+                      height: "15px",
+                      width: "15px",
+                      minWidth: "15px",
+                    }}
+                    type="checkbox"
+                    checked={!!a.checked}
+                    onChange={() => onSelectCheckbox(a.key)}
+                  />
+                  <label
+                    for={a.name}
+                    style={{
+                      textDecoration: a.checked ? "line-through" : "none",
+                    }}
+                  >
+                    {a.name}
+                  </label>
+                </div>
+              ))}
+        </div>
+        <div className="todoListItems">
+          <h4>Completed items: </h4>
+          {items &&
+            items
+              .filter((a) => a.checked)
+              .map((a) => (
+                <div key={a.key}>
+                  <input
+                    style={{
+                      marginRight: "2rem",
+                      height: "15px",
+                      width: "15px",
+                      minWidth: "15px",
+                    }}
+                    type="checkbox"
+                    checked={!!a.checked}
+                    onChange={() => onSelectCheckbox(a.key)}
+                  />
+                  <label
+                    for={a.name}
+                    style={{
+                      textDecoration: a.checked ? "line-through" : "none",
+                    }}
+                  >
+                    {a.name}
+                  </label>
+                </div>
+              ))}
         </div>
       </div>
     </div>
