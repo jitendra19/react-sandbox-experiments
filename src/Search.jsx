@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./styles.css";
 
 const data = ["patna", "Punjab", "Pune", "delhi", "bangal"];
@@ -6,11 +6,10 @@ const data = ["patna", "Punjab", "Pune", "delhi", "bangal"];
 export default function Search() {
   // let refValue = React.createRef();
   let refValue = useRef("");
-  const [searchData, setSearchData] = React.useState([]);
+  const [searchData, setSearchData] = React.useState(data);
   const onChangeText = (e) => {
     const data1 = data.filter((a) => {
-      if (e.target.value === "") return;
-      return a.indexOf(e.target.value) === 0;
+      return a.indexOf(e.target.value) >= 0;
     });
     console.log(data1);
     setSearchData(data1);

@@ -94,7 +94,7 @@ export default function TodoList() {
                     onChange={() => onSelectCheckbox(a.key)}
                   />
                   <label
-                    for={a.name}
+                    htmlFor={a.name}
                     style={{
                       textDecoration: a.checked ? "line-through" : "none",
                     }}
@@ -123,7 +123,7 @@ export default function TodoList() {
                     onChange={() => onSelectCheckbox(a.key)}
                   />
                   <label
-                    for={a.name}
+                    htmlFor={a.name}
                     style={{
                       textDecoration: a.checked ? "line-through" : "none",
                     }}
