@@ -4,7 +4,7 @@ import "./styles.css";
 // Memo Example
 const Counter = memo(({ counter }) => {
   // console.log("conter value", counter + " " + Date.now());
-  alert(counter++++++);
+  alert("counter++++");
   const func = (counter) => {
     // alert(counter);
     if (counter >= 0 && counter <= 5) return "Red";
