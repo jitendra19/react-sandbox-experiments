@@ -1,13 +1,52 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
 }
 
 .todoList {
+  text-align: center;
   margin: 0px auto;
   width: 500px;
 }
 
 .todoListItems {
   text-align: left;
+}
+
+/* nav menu */
+nav {
+  background-color: #333;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #111;
+}
+
+/* flex CSS for nav menu*/
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  /* justify-content: flex-end; */
+  /* justify-content: flex-start; */
+  /* justify-content: center; */
+  /* justify-content: space-around; */
+}
+
+nav ul li {
+  /* flex: 1; */
 }
