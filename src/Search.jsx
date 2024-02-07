@@ -11,7 +11,7 @@ export default function Search() {
     const data1 = data.filter((a) => {
       return a.indexOf(e.target.value) >= 0;
     });
-    console.log(data1);
+    // console.log(data1);
     setSearchData(data1);
   };
   return (

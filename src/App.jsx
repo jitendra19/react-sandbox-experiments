@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import "./styles.css";
 import Todolist from "./Todolist";
 import Search from "./Search";
+import ReactExps from "./ReactExps";
 
 export default function App() {
   const [selectedMenu, setSelectedMenu] = useState("Todo");
@@ -28,8 +29,8 @@ export default function App() {
             </a>
           </li>
           <li>
-            <a href="#" onClick={() => onClickMenu("Home")}>
-              Home
+            <a href="#" onClick={() => onClickMenu("react")}>
+              React
             </a>
           </li>
           <li>
@@ -41,6 +42,7 @@ export default function App() {
       </nav>
       {selectedMenu === "Todo" && <Todolist />}
       {selectedMenu === "Search" && <Search />}
+      {selectedMenu === "react" && <ReactExps />}
     </div>
   );
 }
