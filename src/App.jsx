@@ -29,8 +29,8 @@ export default function App() {
             </a>
           </li>
           <li>
-            <a href="#" onClick={() => onClickMenu("react")}>
-              React
+            <a href="#" onClick={() => onClickMenu("Memoized")}>
+              Memoized
             </a>
           </li>
           <li>
@@ -42,7 +42,7 @@ export default function App() {
       </nav>
       {selectedMenu === "Todo" && <Todolist />}
       {selectedMenu === "Search" && <Search />}
-      {selectedMenu === "react" && <MemoizedComponent />}
+      {selectedMenu === "Memoized" && <MemoizedComponent />}
     </div>
   );
 }
