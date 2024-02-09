@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import "./styles.css";
 import Todolist from "./Todolist";
 import Search from "./Search";
-import ReactExps from "./ReactExps";
+import MemoizedComponent from "./MemoizedComponent";
 
 export default function App() {
   const [selectedMenu, setSelectedMenu] = useState("Todo");
@@ -42,7 +42,7 @@ export default function App() {
       </nav>
       {selectedMenu === "Todo" && <Todolist />}
       {selectedMenu === "Search" && <Search />}
-      {selectedMenu === "react" && <ReactExps />}
+      {selectedMenu === "react" && <MemoizedComponent />}
     </div>
   );
 }
