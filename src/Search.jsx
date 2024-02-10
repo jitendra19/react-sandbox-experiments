@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 
 const data = ["patna", "Punjab", "Pune", "delhi", "bangal"];
@@ -22,7 +22,7 @@ export default function Search() {
       {searchData &&
         searchData.length > 0 &&
         searchData.map((a) => {
-          return <div>{a}</div>;
+          return <div key={Math.random()}>{a}</div>;
         })}
     </div>
   );
