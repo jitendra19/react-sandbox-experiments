@@ -1,54 +1,35 @@
-import { useRef, useState, useReducer } from "react";
-
-const data = [
-  "patna",
-  "Punjab",
-  "Pune",
-  "delhi",
-  "bangal",
-  "patna",
-  "Punjab",
-  "Pune",
-  "delhi",
-  "bangal",
-  "patna",
-  "Punjab",
-  "Pune",
-  "delhi",
-  "bangal",
-  "patna",
-  "Punjab",
-  "Pune",
-  "delhi",
-  "bangal",
-  "patna",
-  "Punjab",
-  "Pune",
-  "delhi",
-  "bangal",
-  "patna",
-  "Punjab",
-  "Pune",
-  "delhi",
-  "bangal",
-];
+import { useRef, useState, useReducer, useEffect } from "react";
+import axios from "axios";
+let counter = 0;
 
 export default function Search() {
   // let refValue = React.createRef();
   let refValue = useRef("");
-  // const [searchData, setSearchData] = useState(data);
+  const [originalData, setOriginalData] = useState([]);
   const [searchData, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case "SEARCH": {
-        const data1 = data.filter((a) => {
-          return a.indexOf(action.payload) === 0;
+        return originalData.filter((a) => {
+          return a.country.indexOf(action.payload) === 0;
         });
-        return data1;
+      }
+      case "FETCH": {
+        return action.payload;
       }
       default:
         return state;
     }
-  }, data);
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get("https://countriesnow.space/api/v0.1/countries")
+      .then((countries) => {
+        // console.log(countries.data.data[0]);
+        setOriginalData(countries.data.data);
+        dispatch({ type: "FETCH", payload: countries.data.data });
+      });
+  }, []);
 
   const onChangeText = (e) => {
     // const data1 = data.filter((a) => {
@@ -61,6 +42,7 @@ export default function Search() {
   };
   return (
     <div className="searchList">
+      <h5>Rendering counter: {counter++}</h5>
       <h1>Hello jiten</h1>
       <h2>It is a seach Component</h2>
       <input
@@ -75,7 +57,8 @@ export default function Search() {
           searchData.map((a, index) => {
             return (
               <div className="listItem" key={index}>
-                <span> {a} </span>
+                {/* {JSON.stringify(a)} */}
+                <span> {a.country} </span>
               </div>
             );
           })}
