@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   font-family: sans-serif;
 }
@@ -52,4 +56,29 @@ nav ul {
 
 nav ul li {
   /* flex: 1; */
+}
+
+.searchList {
+  text-align: center;
+}
+
+.searchList input[id="searchItemsInput"] {
+  width: 300px;
+  height: 25px;
+  border: 2px solid rgb(83, 83, 214);
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.searchList .list {
+  border: 1.5px solid rgb(180, 125, 170);
+  border-radius: 5px;
+  font-size: 21px;
+  font-family: "Times New Roman", Times, monospace;
+  max-height: 450px;
+  overflow: auto;
+}
+
+.searchList .listItem {
+  color: rgb(172, 19, 144);
 }

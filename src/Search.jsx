@@ -1,6 +1,37 @@
 import { useRef, useState, useReducer } from "react";
 
-const data = ["patna", "Punjab", "Pune", "delhi", "bangal"];
+const data = [
+  "patna",
+  "Punjab",
+  "Pune",
+  "delhi",
+  "bangal",
+  "patna",
+  "Punjab",
+  "Pune",
+  "delhi",
+  "bangal",
+  "patna",
+  "Punjab",
+  "Pune",
+  "delhi",
+  "bangal",
+  "patna",
+  "Punjab",
+  "Pune",
+  "delhi",
+  "bangal",
+  "patna",
+  "Punjab",
+  "Pune",
+  "delhi",
+  "bangal",
+  "patna",
+  "Punjab",
+  "Pune",
+  "delhi",
+  "bangal",
+];
 
 export default function Search() {
   // let refValue = React.createRef();
@@ -29,15 +60,26 @@ export default function Search() {
     dispatch({ type: "SEARCH", payload: e.target.value });
   };
   return (
-    <div>
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-      <input type="text" onChange={(e) => onChangeText(e)} refs={refValue} />
-      {searchData &&
-        searchData.length > 0 &&
+    <div className="searchList">
+      <h1>Hello jiten</h1>
+      <h2>It is a seach Component</h2>
+      <input
+        type="text"
+        id="searchItemsInput"
+        onChange={(e) => onChangeText(e)}
+        refs={refValue}
+      />
+      <div className="list">
+        {searchData &&
+          searchData.length > 0 &&
           searchData.map((a, index) => {
-            return <div key={index}>{a}</div>;
-        })}
+            return (
+              <div className="listItem" key={index}>
+                <span> {a} </span>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }
