@@ -27,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "tsc && vite build",
-    "test": "jest",
+    "test": "./node_modules/.bin/jest",
     "eject": "react-scripts eject",
     "dev": "vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",

@@ -6,7 +6,7 @@ import Search from "../Search";
 describe("Search component", () => {
   test("it renders", () => {
     render(<Search />);
-    const linkElement = screen.getByText(/Hello CodeSandbox/i);
+    const linkElement = screen.getByText(/Hello Jiten/i);
     expect(linkElement).toBeInTheDocument();
   });
 });
