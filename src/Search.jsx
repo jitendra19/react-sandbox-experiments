@@ -1,18 +1,32 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./styles.css";
+import { useRef, useState, useReducer } from "react";
 
 const data = ["patna", "Punjab", "Pune", "delhi", "bangal"];
 
 export default function Search() {
   // let refValue = React.createRef();
   let refValue = useRef("");
-  const [searchData, setSearchData] = React.useState(data);
+  // const [searchData, setSearchData] = useState(data);
+  const [searchData, dispatch] = useReducer((state, action) => {
+    switch (action.type) {
+      case "SEARCH": {
+        const data1 = data.filter((a) => {
+          return a.indexOf(action.payload) === 0;
+        });
+        return data1;
+      }
+      default:
+        return state;
+    }
+  }, data);
+
   const onChangeText = (e) => {
-    const data1 = data.filter((a) => {
-      return a.indexOf(e.target.value) >= 0;
-    });
-    // console.log(data1);
-    setSearchData(data1);
+    // const data1 = data.filter((a) => {
+    //   return a.indexOf(e.target.value) === 0;
+    // });
+    // // console.log(data1);
+    // setSearchData(data1);
+
+    dispatch({ type: "SEARCH", payload: e.target.value });
   };
   return (
     <div>
@@ -21,8 +35,8 @@ export default function Search() {
       <input type="text" onChange={(e) => onChangeText(e)} refs={refValue} />
       {searchData &&
         searchData.length > 0 &&
-        searchData.map((a) => {
-          return <div key={Math.random()}>{a}</div>;
+          searchData.map((a, index) => {
+            return <div key={index}>{a}</div>;
         })}
     </div>
   );
