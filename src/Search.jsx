@@ -1,5 +1,4 @@
 import { useRef, useState, useReducer } from "react";
-import "./styles.css";
 
 const data = ["patna", "Punjab", "Pune", "delhi", "bangal"];
 
@@ -36,8 +35,8 @@ export default function Search() {
       <input type="text" onChange={(e) => onChangeText(e)} refs={refValue} />
       {searchData &&
         searchData.length > 0 &&
-        searchData.map((a, index) => {
-          return <div key={index}>{a}</div>;
+          searchData.map((a, index) => {
+            return <div key={index}>{a}</div>;
         })}
     </div>
   );
