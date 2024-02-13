@@ -79,6 +79,11 @@ nav ul li {
   overflow: auto;
 }
 
-.searchList .listItem {
+.searchList .listItem:nth-child(even) {
   color: rgb(172, 19, 144);
+  background-color: antiquewhite;
+}
+.searchList .listItem:nth-child(odd) {
+  color: rgb(172, 19, 144);
+  background-color: rgb(193, 205, 187);
 }
