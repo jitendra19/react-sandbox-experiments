@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import Todolist from "./Todolist";
 import Search from "./Search";
@@ -6,11 +6,19 @@ import MemoizedComponent from "./MemoizedComponent";
 
 export default function App() {
   const [selectedMenu, setSelectedMenu] = useState("Todo");
+  const [time, setTime] = useState(new Date());
+  useEffect(() => {
+    const timeId = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    clearInterval(timeId);
+  }, []);
   const onClickMenu = (text) => {
     setSelectedMenu(text);
   };
   return (
     <div className="App">
+      <div className="timeClass">{time.toLocaleTimeString()}</div>
       <nav>
         <ul>
           <li>
