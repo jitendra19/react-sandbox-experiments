@@ -7,14 +7,17 @@ export default function Search() {
   // let refValue = React.createRef();
   let refValue = useRef("");
 
-  const [originalData, setOriginalData] = useState([]);
+  // const [originalData, setOriginalData] = useState([]);
+  let originalData = [];
 
   const [searchData, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case "SEARCH": {
-        return originalData.filter((a) => {
-          return a.country.indexOf(action.payload) === 0;
-        });
+        return originalData && originalData.length > 0
+          ? originalData.filter((a) => {
+              return a.country.indexOf(action.payload) === 0;
+            })
+          : [];
       }
       case "FETCH": {
         return action.payload;
@@ -28,7 +31,8 @@ export default function Search() {
     axios
       .get("https://countriesnow.space/api/v0.1/countries")
       .then((countries) => {
-        setOriginalData(countries.data.data);
+        // setOriginalData(countries.data.data);
+        originalData = countries.data.data;
         dispatch({ type: "FETCH", payload: countries.data.data });
       });
   }, []);
@@ -49,6 +53,8 @@ export default function Search() {
         onChange={(e) => onChangeText(e)}
         refs={refValue}
       />
+      <h1>{searchData.length}</h1>
+      <h1>{originalData && originalData.length}</h1>
       <div className="list">
         {searchData &&
           searchData.length > 0 &&
